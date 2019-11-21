@@ -21,6 +21,16 @@ public class MainClass {
 
         home.clickHome();
         survey.clickSurvey();
+        survey.inputNameOfField("FieldX");
+        survey.inputLocationOfTheField("52°36'43.3\"E 0°49'12.8\"S");
+        survey.uploadImage();
+        survey.clickContinue();
+        survey.selectCurrentCrop("Beet");
+        survey.selectPreviousCrop("Grass");
+        survey.clickContinue();
+        survey.selectTheSoilTexture("Clay");
+        survey.clickContinue();
+
         myDiagnoses.clickMyDiagnoses();
         soilTexture.clickSoilTexture();
         articles.clickArticles();

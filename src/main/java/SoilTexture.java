@@ -13,6 +13,5 @@ public class SoilTexture {
     public void clickSoilTexture() {
         driver.get("http://"+MainClass.site);
         driver.findElement(soilTexture).click();
-        Home.waitObjectLoad(500);
     }
 }

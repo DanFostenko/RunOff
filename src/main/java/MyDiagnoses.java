@@ -13,6 +13,5 @@ public class MyDiagnoses {
     public void clickMyDiagnoses() {
         driver.get("http://"+MainClass.site);
         driver.findElement(myDiagnoses).click();
-        Home.waitObjectLoad(500);
     }
 }

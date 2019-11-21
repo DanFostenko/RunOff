@@ -13,6 +13,5 @@ public class Articles {
     public void clickArticles() {
         driver.get("http://"+MainClass.site);
         driver.findElement(articles).click();
-        Home.waitObjectLoad(500);
     }
 }

@@ -13,7 +13,6 @@ public class Home {
     public void clickHome() {
         driver.get("http://"+MainClass.site);
         driver.findElement(home).click();
-        waitObjectLoad(500);
     }
 
     public static void waitObjectLoad(int timeout) {
