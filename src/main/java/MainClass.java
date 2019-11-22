@@ -24,6 +24,8 @@ public class MainClass {
         survey.inputNameOfField("FieldX");
         survey.inputLocationOfTheField("52°36'43.3\"E 0°49'12.8\"S");
         survey.uploadImage();
+        survey.clickNoPhoto();
+        survey.clickNoPhoto();
         survey.clickContinue();
         survey.selectCurrentCrop("Beet");
         survey.selectPreviousCrop("Grass");

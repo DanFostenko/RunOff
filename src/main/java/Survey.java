@@ -15,6 +15,7 @@ public class Survey {
     private By nameOfField = By.id("field_name"); //locator for 'Name of field' input field
     private By locationOfTheField = By.id("gps"); //locator for 'Location of the field' input field
     private By uploadButton = By.xpath("//span[text()='Choose the file to upload']"); //locator for 'Choose the file to upload' button
+    private By noPhotoCheckbox = By.xpath("//span[contains(text(),'have a photo.')]/../span[1]"); //locator for 'I don't have a photo.' checkbox
     private By continueButton = By.xpath("//span[text()='Continue']/.."); //locator for 'Continue' button
     private By soilTextureDropdown = By.id("soil_texture_sel"); //locator for '1. Select the soil texture:' dropdown
 
@@ -23,6 +24,7 @@ public class Survey {
         driver.findElement(survey).click();
     }
 
+    //farm_details
     public void inputNameOfField(String fieldName) {
         driver.findElement(nameOfField).sendKeys(fieldName);
     }
@@ -59,10 +61,15 @@ public class Survey {
         Home.waitObjectLoad(500);  //forced timeout to process image uploading
     }
 
+    public void clickNoPhoto() {
+        driver.findElement(noPhotoCheckbox).click();
+    }
+
     public void clickContinue() {
         driver.findElement(continueButton).click();
     }
 
+    //crop_data
     public void selectCurrentCrop(String currentCrop) {
         By currentCropBy = By.xpath("//div[1]/button/span[text()=\"" + currentCrop + "\"]");
         driver.findElement(currentCropBy).click();
@@ -73,6 +80,7 @@ public class Survey {
         driver.findElement(previousCropBy).click();
     }
 
+    //field_details
     public void selectTheSoilTexture(String soilTextureOption) {
         driver.findElement(soilTextureDropdown).click();
         Home.waitObjectLoad(50);   //forced timeout to open and render the dropdown
