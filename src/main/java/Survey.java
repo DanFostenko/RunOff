@@ -75,9 +75,36 @@ public class Survey {
 
     public void selectTheSoilTexture(String soilTextureOption) {
         driver.findElement(soilTextureDropdown).click();
+        Home.waitObjectLoad(50);   //forced timeout to open and render the dropdown
         By soilTextureOptionBy = By.xpath("//li[text()=\"" + soilTextureOption + "\"]");
         driver.findElement(soilTextureOptionBy).click();
-        Home.waitObjectLoad(5000);
+        Home.waitObjectLoad(300);   //forced timeout to close the dropdown
+    }
+
+    public void selectDepth(String depth) {
+        By depthBy = By.xpath("//div[2]/button/span[starts-with(text(), \"" + depth + "\")]/..");
+        //By depthBy = By.xpath("//h2[contains(text(),'depth')]/../div[2]/button/span[starts-with(text(), \"" + depth + "\")]/..");
+        driver.findElement(depthBy).click();
+    }
+
+    public void selectType(String type) {
+        By typeBy = By.xpath("//div[3]/button/span[starts-with(text(), \"" + type + "\")]/..");
+        driver.findElement(typeBy).click();
+    }
+
+    public void selectLength(String length) {
+        By lengthBy = By.xpath("//div[4]/button/span[starts-with(text(), \"" + length + "\")]/..");
+        driver.findElement(lengthBy).click();
+    }
+
+    public void selectApproach(String approach) {
+        By approachBy = By.xpath("//div[5]/button/span[contains(text(), \"" + approach + "\")]/..");
+        driver.findElement(approachBy).click();
+    }
+
+    public void selectWaterBody(String waterBody) {
+        By waterBodyBy = By.xpath("//div[6]/button/span[starts-with(text(), \"" + waterBody + "\")]/..");
+        driver.findElement(waterBodyBy).click();
     }
 
 }

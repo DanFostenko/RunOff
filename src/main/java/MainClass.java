@@ -29,8 +29,12 @@ public class MainClass {
         survey.selectPreviousCrop("Grass");
         survey.clickContinue();
         survey.selectTheSoilTexture("Clay");
+        survey.selectDepth("Shallow");
+        survey.selectType("Moderate");
+        survey.selectLength("Long");
+        survey.selectApproach("Reduced");
+        survey.selectWaterBody("> 100 m");
         survey.clickContinue();
-
         myDiagnoses.clickMyDiagnoses();
         soilTexture.clickSoilTexture();
         articles.clickArticles();
