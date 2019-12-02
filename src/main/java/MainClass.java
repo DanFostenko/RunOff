@@ -22,7 +22,7 @@ public class MainClass {
         home.clickHome();
         survey.clickSurvey();
         survey.inputNameOfField("FieldX");
-        survey.inputLocationOfTheField("52°36'43.3\"E 0°49'12.8\"S");
+        survey.inputLocationOfTheField("Paddington, Belton Rd", "52°36'43.3\"E 0°49'12.8\"S");
         survey.uploadImage();
         survey.clickNoPhoto();
         survey.clickNoPhoto();
@@ -35,8 +35,9 @@ public class MainClass {
         survey.selectType("Moderate");
         survey.selectLength("Long");
         survey.selectApproach("Reduced");
+        survey.selectSoilCoverage("Keep stubble");
         survey.selectWaterBody("> 100 m");
-        survey.clickContinue();
+        survey.clickFinish();
         myDiagnoses.clickMyDiagnoses();
         soilTexture.clickSoilTexture();
         articles.clickArticles();

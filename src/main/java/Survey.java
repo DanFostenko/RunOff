@@ -13,10 +13,12 @@ public class Survey {
 
     private By survey = By.xpath("//a[text()='Survey']");  //locator for 'Survey' link
     private By nameOfField = By.id("field_name"); //locator for 'Name of field' input field
-    private By locationOfTheField = By.id("gps"); //locator for 'Location of the field' input field
+    private By locationOfTheField1 = By.id("field_location"); //locator for 'Location of the field' input field
+    private By locationOfTheField2 = By.id("gps"); //locator for 'Location of the field' input field
     private By uploadButton = By.xpath("//span[text()='Choose the file to upload']"); //locator for 'Choose the file to upload' button
     private By noPhotoCheckbox = By.xpath("//span[contains(text(),'have a photo.')]/../span[1]"); //locator for 'I don't have a photo.' checkbox
     private By continueButton = By.xpath("//span[text()='Continue']/.."); //locator for 'Continue' button
+    private By finishButton = By.xpath("//span[text()='Finish']/.."); //locator for 'Finish' button
     private By soilTextureDropdown = By.id("soil_texture_sel"); //locator for '1. Select the soil texture:' dropdown
 
     public void clickSurvey() {
@@ -29,8 +31,9 @@ public class Survey {
         driver.findElement(nameOfField).sendKeys(fieldName);
     }
 
-    public void inputLocationOfTheField(String fieldLocation) {
-        driver.findElement(locationOfTheField).sendKeys(fieldLocation);
+    public void inputLocationOfTheField(String fieldLocation1, String fieldLocation2) {
+        driver.findElement(locationOfTheField1).sendKeys(fieldLocation1);
+        driver.findElement(locationOfTheField2).sendKeys(fieldLocation2);
     }
 
     public void uploadImage() {
@@ -110,9 +113,18 @@ public class Survey {
         driver.findElement(approachBy).click();
     }
 
+    public void selectSoilCoverage(String soilCoverage) {
+        By soilCoverageBy = By.xpath("//div[6]/button/span[starts-with(text(), \"" + soilCoverage + "\")]/..");
+        driver.findElement(soilCoverageBy).click();
+    }
+
     public void selectWaterBody(String waterBody) {
-        By waterBodyBy = By.xpath("//div[6]/button/span[starts-with(text(), \"" + waterBody + "\")]/..");
+        By waterBodyBy = By.xpath("//div[7]/button/span[starts-with(text(), \"" + waterBody + "\")]/..");
         driver.findElement(waterBodyBy).click();
+    }
+
+    public void clickFinish() {
+        driver.findElement(finishButton).click();
     }
 
 }
