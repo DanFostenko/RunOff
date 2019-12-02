@@ -38,6 +38,7 @@ public class MainClass {
         survey.selectSoilCoverage("Keep stubble");
         survey.selectWaterBody("> 100 m");
         survey.clickFinish();
+        survey.validateReport();
         myDiagnoses.clickMyDiagnoses();
         soilTexture.clickSoilTexture();
         articles.clickArticles();

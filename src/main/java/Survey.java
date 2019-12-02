@@ -1,4 +1,5 @@
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 
 import java.awt.*;
@@ -19,6 +20,13 @@ public class Survey {
     private By continueButton = By.xpath("//span[text()='Continue']/.."); //locator for 'Continue' button
     private By finishButton = By.xpath("//span[text()='Finish']/.."); //locator for 'Finish' button
     private By soilTextureDropdown = By.id("soil_texture_sel"); //locator for '1. Select the soil texture:' dropdown
+    //report
+    private By reportPotentialScore = By.xpath("//div[@class='potential-score-value-max']");  //locator for 'Run-off potential score' parameter
+    private By reportPotentialClass = By.xpath("//div[@class='potential-class-value']");  //locator for 'Run-off potential class' parameter
+    private By reportScoreLevel = By.xpath("//div[@class='score-level-title']/../*[local-name()='svg']");  //locator for 'Score level' chart
+    private By reportSummaryTable = By.xpath("//table[@class='MuiTable-root']");  //locator for 'Summary' table
+    private By reportRecommendations = By.xpath("//div[@class='recommendations-warning-caption']");  //locator for 'Recommendations' table
+    private By reportFullReport = By.xpath("//div[@class='pdf-report-title']");  //locator for 'Full Report' table
 
     public void clickSurvey() {
         driver.get("http://"+MainClass.site);
@@ -124,6 +132,24 @@ public class Survey {
 
     public void clickFinish() {
         driver.findElement(finishButton).click();
+    }
+
+    public void validateReport() {
+        elementExists(reportPotentialScore);
+        elementExists(reportPotentialClass);
+        elementExists(reportScoreLevel);
+        elementExists(reportSummaryTable);
+        elementExists(reportRecommendations);
+        elementExists(reportFullReport);
+    }
+
+    public boolean elementExists(By xpath) {
+        try {
+            driver.findElement(xpath);
+        } catch (NoSuchElementException e) {
+            return false;
+        }
+        return true;
     }
 
 }
