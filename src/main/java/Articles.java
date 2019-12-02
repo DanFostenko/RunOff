@@ -12,6 +12,7 @@ public class Articles {
 
     public void clickArticles() {
         driver.get("http://"+MainClass.site);
+        Home.refreshPage();
         driver.findElement(articles).click();
     }
 }

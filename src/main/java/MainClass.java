@@ -22,7 +22,7 @@ public class MainClass {
         home.clickHome();
         survey.clickSurvey();
         survey.inputNameOfField("FieldX");
-        survey.inputLocationOfTheField("Paddington, Belton Rd", "52°36'43.3\"E 0°49'12.8\"S");
+        survey.inputLocationOfTheField("CPC4, Capital Park Cambridge (CPC3), Cambridge Rd, Fulbourn, Cambridge CB21 5XE, UK");
         survey.uploadImage();
         survey.clickNoPhoto();
         survey.clickNoPhoto();

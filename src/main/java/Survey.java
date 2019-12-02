@@ -13,8 +13,7 @@ public class Survey {
 
     private By survey = By.xpath("//a[text()='Survey']");  //locator for 'Survey' link
     private By nameOfField = By.id("field_name"); //locator for 'Name of field' input field
-    private By locationOfTheField1 = By.id("field_location"); //locator for 'Location of the field' input field
-    private By locationOfTheField2 = By.id("gps"); //locator for 'Location of the field' input field
+    private By locationOfTheField = By.id("field_location"); //locator for 'Location of the field' input field
     private By uploadButton = By.xpath("//span[text()='Choose the file to upload']"); //locator for 'Choose the file to upload' button
     private By noPhotoCheckbox = By.xpath("//span[contains(text(),'have a photo.')]/../span[1]"); //locator for 'I don't have a photo.' checkbox
     private By continueButton = By.xpath("//span[text()='Continue']/.."); //locator for 'Continue' button
@@ -23,6 +22,7 @@ public class Survey {
 
     public void clickSurvey() {
         driver.get("http://"+MainClass.site);
+        Home.refreshPage();
         driver.findElement(survey).click();
     }
 
@@ -31,9 +31,8 @@ public class Survey {
         driver.findElement(nameOfField).sendKeys(fieldName);
     }
 
-    public void inputLocationOfTheField(String fieldLocation1, String fieldLocation2) {
-        driver.findElement(locationOfTheField1).sendKeys(fieldLocation1);
-        driver.findElement(locationOfTheField2).sendKeys(fieldLocation2);
+    public void inputLocationOfTheField(String fieldLocation) {
+        driver.findElement(locationOfTheField).sendKeys(fieldLocation);
     }
 
     public void uploadImage() {

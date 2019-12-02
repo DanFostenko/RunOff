@@ -1,6 +1,9 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import java.awt.*;
+import java.awt.event.KeyEvent;
+
 public class Home {
     WebDriver driver;
 
@@ -12,6 +15,7 @@ public class Home {
 
     public void clickHome() {
         driver.get("http://"+MainClass.site);
+        refreshPage();
         driver.findElement(home).click();
     }
 
@@ -21,6 +25,20 @@ public class Home {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+    }
+
+    public static void refreshPage() {
+        try {
+            Robot r = null;
+            try {
+                r = new Robot();
+            } catch (AWTException e) {
+                e.printStackTrace();
+            }
+            r.keyPress(KeyEvent.VK_CONTROL);
+            r.keyPress(KeyEvent.VK_F5);  r.keyRelease(KeyEvent.VK_F5);
+            r.keyRelease(KeyEvent.VK_CONTROL);
+        } finally{};
     }
 
 }
