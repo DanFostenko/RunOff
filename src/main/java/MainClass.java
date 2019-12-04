@@ -17,7 +17,7 @@ public class MainClass {
         Survey survey = new Survey(driver);
         MyDiagnoses myDiagnoses = new MyDiagnoses(driver);
         SoilTexture soilTexture = new SoilTexture(driver);
-        Articles articles = new Articles(driver);
+        SignUp articles = new SignUp(driver);
 
         home.clickHome();
         survey.clickSurvey();
@@ -43,7 +43,7 @@ public class MainClass {
         soilTexture.clickSoilTexture();
         articles.clickArticles();
 
-        
+
         driver.quit();  //end work of driver
     }
 }

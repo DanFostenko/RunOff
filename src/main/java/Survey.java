@@ -18,8 +18,8 @@ public class Survey {
     private By uploadButton = By.xpath("//span[text()='Choose the file to upload']"); //locator for 'Choose the file to upload' button
     private By noPhotoCheckbox = By.xpath("//span[contains(text(),'have a photo.')]/../span[1]"); //locator for 'I don't have a photo.' checkbox
     private By continueButton = By.xpath("//span[text()='Continue']/.."); //locator for 'Continue' button
+    private By howToLink = By.xpath("//a[text()='How to identify soil texture?']"); //locator for 'How to identify soil texture?' link
     private By finishButton = By.xpath("//span[text()='Finish']/.."); //locator for 'Finish' button
-    private By soilTextureDropdown = By.id("soil_texture_sel"); //locator for '1. Select the soil texture:' dropdown
     //report
     private By reportPotentialScore = By.xpath("//div[@class='potential-score-value-max']");  //locator for 'Run-off potential score' parameter
     private By reportPotentialClass = By.xpath("//div[@class='potential-class-value']");  //locator for 'Run-off potential class' parameter
@@ -30,7 +30,6 @@ public class Survey {
 
     public void clickSurvey() {
         driver.get("http://"+MainClass.site);
-        Home.refreshPage();
         driver.findElement(survey).click();
     }
 
@@ -91,12 +90,10 @@ public class Survey {
     }
 
     //field_details
-    public void selectTheSoilTexture(String soilTextureOption) {
-        driver.findElement(soilTextureDropdown).click();
-        Home.waitObjectLoad(50);   //forced timeout to open and render the dropdown
-        By soilTextureOptionBy = By.xpath("//li[text()=\"" + soilTextureOption + "\"]");
-        driver.findElement(soilTextureOptionBy).click();
-        Home.waitObjectLoad(300);   //forced timeout to close the dropdown
+    public void selectTheSoilTexture(String soilTexture) {
+        By soilTextureBy = By.xpath("//span[text()=\"" + soilTexture + "\"]/..");
+        driver.findElement(soilTextureBy).click();
+        driver.findElement(howToLink).click();
     }
 
     public void selectDepth(String depth) {

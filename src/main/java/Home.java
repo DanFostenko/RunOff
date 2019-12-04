@@ -14,7 +14,6 @@ public class Home {
 
     public void clickHome() {
         driver.get("http://"+MainClass.site);
-        refreshPage();
         driver.findElement(home).click();
     }
 

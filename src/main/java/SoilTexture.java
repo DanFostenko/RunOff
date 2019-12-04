@@ -12,7 +12,6 @@ public class SoilTexture {
 
     public void clickSoilTexture() {
         driver.get("http://"+MainClass.site);
-        Home.refreshPage();
         driver.findElement(soilTexture).click();
     }
 }

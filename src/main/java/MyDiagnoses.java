@@ -12,7 +12,6 @@ public class MyDiagnoses {
 
     public void clickMyDiagnoses() {
         driver.get("http://"+MainClass.site);
-        Home.refreshPage();
         driver.findElement(myDiagnoses).click();
     }
 }
