@@ -17,9 +17,10 @@ public class MainClass {
         Survey survey = new Survey(driver);
         MyDiagnoses myDiagnoses = new MyDiagnoses(driver);
         SoilTexture soilTexture = new SoilTexture(driver);
-        SignUp articles = new SignUp(driver);
+        SignUp signUp = new SignUp(driver);
 
         home.clickHome();
+        home.playVideo();
         survey.clickSurvey();
         survey.inputNameOfField("FieldX");
         survey.inputLocationOfTheField("CPC4, Capital Park Cambridge (CPC3), Cambridge Rd, Fulbourn, Cambridge CB21 5XE, UK");
@@ -41,8 +42,7 @@ public class MainClass {
         survey.validateReport();
         myDiagnoses.clickMyDiagnoses();
         soilTexture.clickSoilTexture();
-        articles.clickArticles();
-
+        signUp.clickSignUp();
 
         driver.quit();  //end work of driver
     }

@@ -10,7 +10,7 @@ public class SignUp {
 
     private By signUpButton = By.xpath("//span[text()='SIGN UP']/..");  //locator for 'Sign Up' button
 
-    public void clickArticles() {
+    public void clickSignUp() {
         driver.get("http://"+MainClass.site);
         driver.findElement(signUpButton).click();
     }

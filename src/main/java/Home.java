@@ -1,4 +1,5 @@
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -11,10 +12,19 @@ public class Home {
     }
 
     private By home = By.xpath("//a[text()='Home']");  //locator for 'Home' link
+    private By diagnoseMyFieldButton = By.xpath("//a[text()='Diagnose my field']");  //locator for 'Diagnose My Field' button
+    private By startNowButton = By.xpath("//a[text()='Start Now']");  //locator for 'Start Now' button
+    private By youtubeVideo = By.xpath("//iframe[@class='MuiCardMedia-root video-content MuiCardMedia-media']");  //locator for YouTube video
 
     public void clickHome() {
         driver.get("http://"+MainClass.site);
         driver.findElement(home).click();
+        elementExists(diagnoseMyFieldButton);
+        elementExists(startNowButton);
+    }
+
+    public void playVideo() {
+        driver.findElement(youtubeVideo).click();
     }
 
     public static void waitObjectLoad(int timeout) {
@@ -23,6 +33,15 @@ public class Home {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+    }
+
+    public boolean elementExists(By xpath) {
+        try {
+            driver.findElement(xpath);
+        } catch (NoSuchElementException e) {
+            return false;
+        }
+        return true;
     }
 
     public static void refreshPage() {
@@ -38,5 +57,4 @@ public class Home {
             r.keyRelease(KeyEvent.VK_CONTROL);
         } finally{};
     }
-
 }
