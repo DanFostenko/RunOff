@@ -43,6 +43,7 @@ public class MainClass {
         soilTexture.clickSoilTexture();
         articles.clickArticles();
 
+        
         driver.quit();  //end work of driver
     }
 }
