@@ -42,6 +42,8 @@ public class MainClass {
         survey.validateReport();
         survey.clickDiagnoseAnotherField();
         myDiagnoses.clickMyDiagnoses();
+        myDiagnoses.openDiagnose("FieldX");
+        myDiagnoses.deleteDiagnose("FieldX");
         soilTexture.clickSoilTexture();
         signUp.clickSignUp();
 
