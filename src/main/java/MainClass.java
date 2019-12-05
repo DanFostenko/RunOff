@@ -43,7 +43,11 @@ public class MainClass {
         survey.clickDiagnoseAnotherField();
         myDiagnoses.clickMyDiagnoses();
         myDiagnoses.openDiagnose("FieldX");
+        myDiagnoses.downloadDiagnose("FieldX");
+        myDiagnoses.checkDiagnose("FieldX");
+        //myDiagnoses.editDiagnose("FieldX");
         myDiagnoses.deleteDiagnose("FieldX");
+        myDiagnoses.addDiagnose();
         soilTexture.clickSoilTexture();
         signUp.clickSignUp();
 
