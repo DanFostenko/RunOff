@@ -28,6 +28,7 @@ public class Survey {
     private By reportSummaryTable = By.xpath("//table[@class='MuiTable-root']");  //locator for 'Summary' table
     private By reportRecommendations = By.xpath("//div[@class='recommendations-warning-caption']");  //locator for 'Recommendations' table
     private By reportFullReport = By.xpath("//div[@class='pdf-report-title']");  //locator for 'Full Report' table
+    private By diagnoseAnotherFieldButton = By.xpath("//span[text()='Diagnose another field']/..");  //locator for 'Diagnose another field' button
 
     public void clickSurvey() {
         driver.get("http://"+MainClass.site);
@@ -142,6 +143,10 @@ public class Survey {
         elementExists(reportSummaryTable);
         elementExists(reportRecommendations);
         elementExists(reportFullReport);
+    }
+
+    public void clickDiagnoseAnotherField() {
+        driver.findElement(diagnoseAnotherFieldButton).click();
     }
 
     public boolean elementExists(By xpath) {

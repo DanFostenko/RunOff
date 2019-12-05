@@ -40,6 +40,7 @@ public class MainClass {
         survey.selectWaterBody("> 100 m");
         survey.clickFinish();
         survey.validateReport();
+        survey.clickDiagnoseAnotherField();
         myDiagnoses.clickMyDiagnoses();
         soilTexture.clickSoilTexture();
         signUp.clickSignUp();
