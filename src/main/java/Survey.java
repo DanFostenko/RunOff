@@ -1,4 +1,5 @@
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 
@@ -41,6 +42,9 @@ public class Survey {
     }
 
     public void inputLocationOfTheField(String fieldLocation) {
+        driver.findElement(locationOfTheField).click();
+        driver.findElement(locationOfTheField).sendKeys(Keys.SHIFT, Keys.HOME, Keys.DELETE);
+        driver.findElement(locationOfTheField).clear();
         driver.findElement(locationOfTheField).sendKeys(fieldLocation);
     }
 
@@ -98,7 +102,8 @@ public class Survey {
         By soilTextureOptionBy = By.xpath("//li[text()=\"" + soilTextureOption + "\"]");
         driver.findElement(soilTextureOptionBy).click();
         Home.waitObjectLoad(300);   //forced timeout to close the dropdown
-        driver.findElement(howToLink).click();
+        elementExists(howToLink);
+        //driver.findElement(howToLink).click();
     }
 
     public void selectDepth(String depth) {
