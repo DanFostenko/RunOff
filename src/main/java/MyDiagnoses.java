@@ -25,27 +25,27 @@ public class MyDiagnoses {
     }
 
     public void downloadDiagnose(String fieldName) {
-        By diagnoseLineBy = By.xpath("//span[text()=\"" + fieldName + "\"]/../../td[6]");
-        driver.findElement(diagnoseLineBy).click();
+        By downloadBy = By.xpath("//span[text()=\"" + fieldName + "\"]/../../td[6]");
+        driver.findElement(downloadBy).click();
     }
 
-    public void checkDiagnose(String fieldName) {
-        By diagnoseLineBy = By.xpath("//span[text()=\"" + fieldName + "\"]/../../td[7]");
-        driver.findElement(diagnoseLineBy).click();
+    public void emailDiagnose(String fieldName) {
+        By emailBy = By.xpath("//span[text()=\"" + fieldName + "\"]/../../td[7]");
+        driver.findElement(emailBy).click();
     }
 
     public void editDiagnose(String fieldName) {
-        By diagnoseLineBy = By.xpath("//span[text()=\"" + fieldName + "\"]/../../td[8]");
-        driver.findElement(diagnoseLineBy).click();
+        By editBy = By.xpath("//span[text()=\"" + fieldName + "\"]/../../td[8]");
+        driver.findElement(editBy).click();
         driver.findElement(myDiagnoses).click();
     }
 
     public void deleteDiagnose(String fieldName) {
-        By deleteButtonBy = By.xpath("//span[text()=\"" + fieldName + "\"]/../../td[last()]");
-        driver.findElement(deleteButtonBy).click();
+        By deleteBy = By.xpath("//span[text()=\"" + fieldName + "\"]/../../td[last()]");
+        driver.findElement(deleteBy).click();
         driver.findElement(disagreeButton).click();
         Home.waitObjectLoad(1000);  //forced timeout to render close popup message
-        driver.findElement(deleteButtonBy).click();
+        driver.findElement(deleteBy).click();
         driver.findElement(agreeButton).click();
         Home.waitObjectLoad(1000);  //forced timeout to render close popup message
     }

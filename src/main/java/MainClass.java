@@ -44,7 +44,7 @@ public class MainClass {
         myDiagnoses.clickMyDiagnoses();
         myDiagnoses.openDiagnose("FieldX");
         myDiagnoses.downloadDiagnose("FieldX");
-        myDiagnoses.checkDiagnose("FieldX");
+        myDiagnoses.emailDiagnose("FieldX");
         //myDiagnoses.editDiagnose("FieldX");
         myDiagnoses.deleteDiagnose("FieldX");
         myDiagnoses.addDiagnose();
