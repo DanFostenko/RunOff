@@ -4,7 +4,7 @@ import java.util.concurrent.TimeUnit;
 
 public class MainClass {
     static WebDriver driver;
-    public static String site = "3.122.245.190:8081";
+    public static String site = "3.122.245.190:8081";   //Test 3.122.245.190:8081; Stage 54.93.213.241:8081
 
     public static void main(String[] args) {
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\DanFo\\IdeaProjects\\run-off-test\\chromedriver.exe");

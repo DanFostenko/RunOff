@@ -24,7 +24,7 @@ public class Survey {
     private By howToLink = By.xpath("//a[text()='How to identify soil texture?']"); //locator for 'How to identify soil texture?' link
     private By finishButton = By.xpath("//span[text()='Finish']/.."); //locator for 'Finish' button
     //report
-    private By reportPotentialScore = By.xpath("//div[@class='potential-score-value-max']");  //locator for 'Run-off potential score' parameter
+    private By reportPotentialScore = By.xpath("//span[@class='potential-score-value']");  //locator for 'Run-off potential score' parameter
     private By reportPotentialClass = By.xpath("//div[@class='potential-class-value']");  //locator for 'Run-off potential class' parameter
     private By reportScoreLevel = By.xpath("//div[@class='score-level-title']/../*[local-name()='svg']");  //locator for 'Score level' chart
     private By reportSummaryTable = By.xpath("//table[@class='MuiTable-root']");  //locator for 'Summary' table
@@ -148,6 +148,12 @@ public class Survey {
 
     public void validateReport() {
         elementExists(reportPotentialScore);
+        if (driver.findElement(reportPotentialScore).getText().equals("8.0"))
+        {
+            System.out.println("Correct Potential Score: " + driver.findElement(reportPotentialScore).getText());
+        }
+        System.out.println("Wrong Potential Score: " + driver.findElement(reportPotentialScore).getText());
+        //driver.findElement(reportPotentialScore).getAttribute("value") = "7";
         elementExists(reportPotentialClass);
         elementExists(reportScoreLevel);
         elementExists(reportSummaryTable);
