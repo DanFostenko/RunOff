@@ -148,12 +148,10 @@ public class Survey {
 
     public void validateReport() {
         elementExists(reportPotentialScore);
-        if (driver.findElement(reportPotentialScore).getText().equals("8.0"))
+        if (!driver.findElement(reportPotentialScore).getText().equals("8.0"))
         {
-            System.out.println("Correct Potential Score: " + driver.findElement(reportPotentialScore).getText());
+            System.out.println("Potential Score is incorrect: " + driver.findElement(reportPotentialScore).getText());
         }
-        System.out.println("Wrong Potential Score: " + driver.findElement(reportPotentialScore).getText());
-        //driver.findElement(reportPotentialScore).getAttribute("value") = "7";
         elementExists(reportPotentialClass);
         elementExists(reportScoreLevel);
         elementExists(reportSummaryTable);
