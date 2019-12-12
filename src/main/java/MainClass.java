@@ -27,6 +27,7 @@ public class MainClass {
         survey.uploadImage();
         survey.clickNoPhoto();
         survey.clickNoPhoto();
+        survey.clickConfirmLocation();
         survey.clickContinue();
         survey.selectCurrentCrop("Beet");
         survey.selectPreviousCrop("Grass");
@@ -36,7 +37,7 @@ public class MainClass {
         survey.selectType("Moderate");
         survey.selectLength("Long");
         survey.selectApproach("Reduced");
-        survey.selectSoilCoverage("Keep stubble");
+        survey.selectSoilCoverage("Burying stubble");
         survey.selectWaterBody("> 100 m");
         survey.clickFinish();
         survey.validateReport();
