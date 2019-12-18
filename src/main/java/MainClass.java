@@ -24,9 +24,9 @@ public class MainClass {
         SignUp signUp = new SignUp(driver);
 
         home.clickHome();
-        home.signInWithCreds(email,password);
+        home.signUpWithCreds(name,password);
         home.clickSignOut();
-        home.signUpWithCreds(name,email,password);
+        home.signInWithCreds(email,password);
         home.playVideo();
         survey.clickSurvey();
         survey.inputNameOfField("FieldX");

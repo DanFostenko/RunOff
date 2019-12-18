@@ -1,4 +1,5 @@
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import java.awt.*;
@@ -30,6 +31,7 @@ public class Home {
     private By confirmPasswordField = By.id("confirmPassword");
     private By acceptTCCheckbox = By.xpath("//input[@type='checkbox']");  //locator for 'Accept Terms and Conditions' checkbox
     private By signUpSubmitButton = By.xpath("//span[@class='MuiButton-label'][text()='Sign up']/..");  //locator for 'Sign up' button in Sign in menu
+    private By emailReadField = By.xpath("//span[@id='email']");    //email on temporary email service page
 
     //Methods
     public void clickHome() {
@@ -83,7 +85,16 @@ public class Home {
         driver.findElement(signUpTab).click();
     }
 
-    public void signUpWithCreds(String name, String email, String password) {
+    public String signUpWithCreds(String name, String password) {
+        String mainTab = driver.getWindowHandle();  //remember the name of main browser tab
+        ((JavascriptExecutor)driver).executeScript("window.open('https://www.minuteinbox.com','_blank');");    //driver.findElement(By.cssSelector("body")).sendKeys(Keys.CONTROL + "t")
+        switchToActiveTab();
+        String email = driver.findElement(emailReadField).getText();
+        System.out.println("Registration email: " + email);
+        driver.switchTo().window(mainTab);
+        switchToActiveTab();
+        driver.close();
+        switchToActiveTab();
         this.clickSignUp();
         this.typeName(name);
         this.typeEmail(email);
@@ -91,6 +102,7 @@ public class Home {
         this.typeConfirmPassword(password);
         this.clickAcceptTC();
         driver.findElement(signUpSubmitButton).click();
+        return email;
     }
 
     public void clickAcceptTC() {
@@ -116,6 +128,12 @@ public class Home {
             return false;
         }
         return true;
+    }
+
+    private void switchToActiveTab() {
+        for (String tab : driver.getWindowHandles()) {  //switch to the active tab
+            driver.switchTo().window(tab);
+        }
     }
 
     public static void refreshPage() {
