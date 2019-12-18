@@ -13,6 +13,10 @@ public class MainClass {
         driver.manage().window().maximize(); //maximize browser window
         driver.get("http://"+site);
 
+        String name = "UserX";
+        String email = "zeal.roseabella@owee.org";
+        String password = "Eamw5768";
+
         Home home = new Home(driver);
         Survey survey = new Survey(driver);
         MyDiagnoses myDiagnoses = new MyDiagnoses(driver);
@@ -20,6 +24,9 @@ public class MainClass {
         SignUp signUp = new SignUp(driver);
 
         home.clickHome();
+        home.signInWithCreds(email,password);
+        home.clickSignOut();
+        home.signUpWithCreds(name,email,password);
         home.playVideo();
         survey.clickSurvey();
         survey.inputNameOfField("FieldX");
