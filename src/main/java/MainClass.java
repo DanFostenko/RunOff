@@ -21,7 +21,6 @@ public class MainClass {
         Survey survey = new Survey(driver);
         MyDiagnoses myDiagnoses = new MyDiagnoses(driver);
         SoilTexture soilTexture = new SoilTexture(driver);
-        SignUp signUp = new SignUp(driver);
 
         home.clickHome();
         home.signUpWithCreds(name,password);
@@ -57,7 +56,7 @@ public class MainClass {
         myDiagnoses.deleteDiagnose("FieldX");
         myDiagnoses.addDiagnose();
         soilTexture.clickSoilTexture();
-        signUp.clickSignUp();
+        soilTexture.validateFooter();
 
         driver.quit();  //end work of driver
     }
