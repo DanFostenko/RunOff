@@ -26,6 +26,7 @@ public class MainClass {
         home.signUpWithCreds(name,password);
         home.clickSignOut();
         home.signInWithCreds(email,password);
+        home.changeLanguage("English");
         home.playVideo();
         survey.clickSurvey();
         survey.inputNameOfField("FieldX");

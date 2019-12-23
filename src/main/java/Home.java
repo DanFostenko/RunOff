@@ -17,6 +17,7 @@ public class Home {
     private By diagnoseMyFieldButton = By.xpath("//a[text()='Diagnose my field']");  //locator for 'Diagnose My Field' button
     private By startNowButton = By.xpath("//a[text()='Start Now']");  //locator for 'Start Now' button
     private By footer = By.xpath("//div[@class='MuiPaper-root MuiPaper-elevation1 footer-rectangle MuiPaper-rounded']");  //locator for footer
+    private By languageDropdown = By.xpath("//div[@class='select-language-div']/*[name()='svg' and @class='MuiSvgIcon-root']");  //locator for language icon
     private By youtubeVideo = By.xpath("//iframe[@class='MuiCardMedia-root video-content MuiCardMedia-media']");  //locator for YouTube video
     //Sign In/Out/Up
     private By signUpButton = By.xpath("//span[text()='SIGN UP']/..");  //locator for 'SIGN UP' button
@@ -107,6 +108,12 @@ public class Home {
 
     public void clickAcceptTC() {
         driver.findElement(acceptTCCheckbox).click();
+    }
+
+    public void changeLanguage(String language) {
+        driver.findElement(languageDropdown).click();
+        By languageBy = By.xpath("//span[text()=\"" + language + "\"]/../..");
+        driver.findElement(languageBy).click();
     }
 
     public void playVideo() {
