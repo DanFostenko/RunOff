@@ -19,16 +19,16 @@ public class Home {
     private By footer = By.xpath("//div[@class='MuiPaper-root MuiPaper-elevation1 footer-rectangle MuiPaper-rounded']");  //locator for footer
     private By youtubeVideo = By.xpath("//iframe[@class='MuiCardMedia-root video-content MuiCardMedia-media']");  //locator for YouTube video
     //Sign In/Out/Up
-    private By signInButton = By.xpath("//span[text()='SIGN IN']/..");  //locator for 'SIGN IN' button
+    private By signUpButton = By.xpath("//span[text()='SIGN UP']/..");  //locator for 'SIGN UP' button
     private By signInTab = By.xpath("//span[@class='MuiTab-wrapper'][text()='Sign In']/..");  //locator for 'SIGN UP' tab
-    private By emailField = By.id("email");
-    private By passwordField = By.id("password");
+    private By emailField = By.xpath("//input[@name='email']");  //locator for 'Email Address *' field
+    private By passwordField = By.xpath("//input[@name='password']");  //locator for 'Password *' field
     private By signInSubmitButton = By.xpath("//span[@class='MuiButton-label'][text()='Sign In']/..");  //locator for 'Sign In' button in Sign in menu
     private By signOutSubmitButton = By.xpath("//span[@class='MuiButton-label'][text()='Sign Out']/..");  //locator for 'Sign Out' button in Sign in menu
-    private By userButton = By.xpath("//div[@style='cursor: pointer;']");  //locator for user name button
+    private By userButton = By.xpath("//div[@class='auth-profile-name']");  //locator for user name button
     private By signUpTab = By.xpath("//span[text()='Sign Up']/..");  //locator for 'SIGN UP' tab
-    private By nameField = By.id("name");
-    private By confirmPasswordField = By.id("confirmPassword");
+    private By nameField = By.xpath("//input[@name='name']");  //locator for 'Name *' field
+    private By confirmPasswordField = By.xpath("//input[@name='passwordConfirm']");  //locator for 'Confirm password *' field
     private By acceptTCCheckbox = By.xpath("//input[@type='checkbox']");  //locator for 'Accept Terms and Conditions' checkbox
     private By signUpSubmitButton = By.xpath("//span[@class='MuiButton-label'][text()='Sign up']/..");  //locator for 'Sign up' button in Sign in menu
     private By emailReadField = By.xpath("//span[@id='email']");    //email on temporary email service page
@@ -43,7 +43,7 @@ public class Home {
     }
 
     public void clickSignIn() {
-        driver.findElement(signInButton).click();
+        driver.findElement(signUpButton).click();
         driver.findElement(signInTab).click();
     }
 
