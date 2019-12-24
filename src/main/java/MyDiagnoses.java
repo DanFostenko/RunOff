@@ -1,5 +1,9 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.interactions.Actions;
+
+import java.awt.*;
+import java.awt.event.KeyEvent;
 
 public class MyDiagnoses {
     WebDriver driver;
@@ -19,29 +23,33 @@ public class MyDiagnoses {
     }
 
     public void openDiagnose(String fieldName) {
-        By diagnoseLineBy = By.xpath("//span[text()=\"" + fieldName + "\"]/../..");
+        scrollDown();
+        By diagnoseLineBy = By.xpath("//a[text()=\"" + fieldName + "\"]/../..");
         driver.findElement(diagnoseLineBy).click();
         driver.findElement(myDiagnoses).click();
     }
 
     public void downloadDiagnose(String fieldName) {
-        By downloadBy = By.xpath("//span[text()=\"" + fieldName + "\"]/../../td[6]");
+        By downloadBy = By.xpath("//a[text()=\"" + fieldName + "\"]/../../td[6]");
         driver.findElement(downloadBy).click();
     }
 
     public void emailDiagnose(String fieldName) {
-        By emailBy = By.xpath("//span[text()=\"" + fieldName + "\"]/../../td[7]");
+        By emailBy = By.xpath("//a[text()=\"" + fieldName + "\"]/../../td[7]");
         driver.findElement(emailBy).click();
     }
 
     public void editDiagnose(String fieldName) {
-        By editBy = By.xpath("//span[text()=\"" + fieldName + "\"]/../../td[8]");
+        By editBy = By.xpath("//a[text()=\"" + fieldName + "\"]/../../td[8]");
         driver.findElement(editBy).click();
         driver.findElement(myDiagnoses).click();
     }
 
     public void deleteDiagnose(String fieldName) {
-        By deleteBy = By.xpath("//span[text()=\"" + fieldName + "\"]/../../td[last()]");
+        scrollDown();
+        By deleteBy = By.xpath("//a[text()=\"" + fieldName + "\"][last()]/../../td[last()]/button");
+        Actions action = new Actions(driver);
+        action.moveToElement(driver.findElement(deleteBy)).build().perform();   //mouseover
         driver.findElement(deleteBy).click();
         driver.findElement(disagreeButton).click();
         Home.waitObjectLoad(1000);  //forced timeout to render close popup message
@@ -72,5 +80,17 @@ public class MyDiagnoses {
         survey.validateReport();
         survey.clickDiagnoseAnotherField();*/
         driver.findElement(myDiagnoses).click();
+    }
+
+    public static void scrollDown() {
+        try {
+            Robot r = null;
+            try {   //scroll down to the bottom of the page
+                r = new Robot();
+            } catch (AWTException e) {
+                e.printStackTrace();
+            }
+            r.keyPress(KeyEvent.VK_END);  r.keyRelease(KeyEvent.VK_END);
+        } finally{};
     }
 }

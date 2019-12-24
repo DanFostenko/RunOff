@@ -14,8 +14,9 @@ public class MainClass {
         driver.get("http://"+site);
 
         String name = "UserX";
-        String email = "zeal.roseabella@owee.org";
+        String email = "yeriel.nikita@owee.org";
         String password = "Eamw5768";
+        String fieldName = "FieldXYZ";
 
         Home home = new Home(driver);
         Survey survey = new Survey(driver);
@@ -23,13 +24,13 @@ public class MainClass {
         SoilTexture soilTexture = new SoilTexture(driver);
 
         home.clickHome();
-        home.signUpWithCreds(name,password);
-        home.clickSignOut();
         home.signInWithCreds(email,password);
+        home.clickSignOut();
+        home.signUpWithCreds(name,password);
         home.changeLanguage("English");
         home.playVideo();
         survey.clickSurvey();
-        survey.inputNameOfField("FieldX");
+        survey.inputNameOfField(fieldName);
         survey.inputLocationOfTheField("CPC4, Capital Park Cambridge (CPC3), Cambridge Rd, Fulbourn, Cambridge CB21 5XE, UK");
         survey.uploadImage();
         survey.clickNoPhoto();
@@ -50,11 +51,11 @@ public class MainClass {
         survey.validateReport();
         survey.clickDiagnoseAnotherField();
         myDiagnoses.clickMyDiagnoses();
-        myDiagnoses.openDiagnose("FieldX");
-        myDiagnoses.downloadDiagnose("FieldX");
-        myDiagnoses.emailDiagnose("FieldX");
-        //myDiagnoses.editDiagnose("FieldX");
-        myDiagnoses.deleteDiagnose("FieldX");
+        myDiagnoses.openDiagnose(fieldName);
+        myDiagnoses.downloadDiagnose(fieldName);
+        myDiagnoses.emailDiagnose(fieldName);
+        //myDiagnoses.editDiagnose(fieldName);
+        myDiagnoses.deleteDiagnose(fieldName);
         myDiagnoses.addDiagnose();
         soilTexture.clickSoilTexture();
         soilTexture.validateFooter();

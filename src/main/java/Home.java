@@ -103,6 +103,7 @@ public class Home {
         this.typeConfirmPassword(password);
         this.clickAcceptTC();
         driver.findElement(signUpSubmitButton).click();
+        waitObjectLoad(2000);   //forced timeout to process request on Auth0
         return email;
     }
 
