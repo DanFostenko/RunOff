@@ -2,7 +2,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
-
 import java.awt.*;
 import java.awt.event.KeyEvent;
 
@@ -33,8 +32,9 @@ public class Survey {
     private By diagnoseAnotherFieldButton = By.xpath("//span[text()='Diagnose another field']/..");  //locator for 'Diagnose another field' button
 
     public void clickSurvey() {
-        driver.get("http://"+MainClass.site);
+        driver.get("https://"+MainClass.site);
         driver.findElement(survey).click();
+        //Home.waitObjectLoad(3000);  //forced timeout to load the survey
     }
 
     //farm_details

@@ -25,7 +25,7 @@ public class SoilTexture {
     private By closeButton = By.xpath("//*[@class='MuiSvgIcon-root terms-conditions-close-icon']");  //Close button in modal window
 
     public void clickSoilTexture() {
-        driver.get("http://"+MainClass.site);
+        driver.get("https://"+MainClass.site);
         driver.findElement(soilTexture).click();
     }
 

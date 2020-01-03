@@ -36,7 +36,7 @@ public class Home {
 
     //Methods
     public void clickHome() {
-        driver.get("http://"+MainClass.site);
+        driver.get("https://"+MainClass.site);
         driver.findElement(home).click();
         elementExists(diagnoseMyFieldButton);
         elementExists(startNowButton);
@@ -112,6 +112,7 @@ public class Home {
     }
 
     public void changeLanguage(String language) {
+        //waitObjectLoad(1000);   //forced timeout to render dropdown
         driver.findElement(languageDropdown).click();
         By languageBy = By.xpath("//span[text()=\"" + language + "\"]/../..");
         driver.findElement(languageBy).click();

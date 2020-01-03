@@ -18,7 +18,7 @@ public class MyDiagnoses {
     private By addDiagnose = By.xpath("//h2[text()='My Diagnoses']/../div[last()]/div/button");  //locator for '+' button
 
     public void clickMyDiagnoses() {
-        driver.get("http://"+MainClass.site);
+        driver.get("https://"+MainClass.site);
         driver.findElement(myDiagnoses).click();
     }
 

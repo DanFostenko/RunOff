@@ -11,11 +11,11 @@ public class MainClass {
         WebDriver driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS); //implicit waiting for GUI element to appear
         driver.manage().window().maximize(); //maximize browser window
-        driver.get("http://"+site);
+        driver.get("https://"+site);
 
         String name = "UserX";
-        String email = "yeriel.nikita@owee.org";
-        String password = "Eamw5768";
+        String email = "hridhaan.demarion@owee.org";
+        String password = "Eamw5768*";
         String fieldName = "FieldXYZ";
 
         Home home = new Home(driver);
@@ -25,8 +25,8 @@ public class MainClass {
 
         home.clickHome();
         home.signInWithCreds(email,password);
-        home.clickSignOut();
-        home.signUpWithCreds(name,password);
+
+        //home.signUpWithCreds(name,password);
         home.changeLanguage("English");
         home.playVideo();
         survey.clickSurvey();
@@ -60,6 +60,7 @@ public class MainClass {
         soilTexture.clickSoilTexture();
         soilTexture.validateFooter();
 
+        home.clickSignOut();
         driver.quit();  //end work of driver
     }
 }
