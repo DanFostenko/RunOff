@@ -15,7 +15,7 @@ public class Survey {
     private By survey = By.xpath("//a[text()='Survey']");  //locator for 'Survey' link
     private By nameOfField = By.id("field_name"); //locator for 'Name of field' input field
     private By locationOfTheField = By.id("field_location"); //locator for 'Location of the field' input field
-    private By confirmLocationLink = By.xpath("//div[2]/div/div/div/div/div/p/a[@href='#']"); //locator for GPS link which confirms the location
+    private By confirmLocationLink = By.xpath("//div/div/div/div/div/p/a[@href='#']"); //locator for GPS link which confirms the location
     private By uploadButton = By.xpath("//span[text()='Choose the file to upload']"); //locator for 'Choose the file to upload' button
     private By noPhotoCheckbox = By.xpath("//span[contains(text(),'have a photo.')]/../span[1]"); //locator for 'I don't have a photo.' checkbox
     private By continueButton = By.xpath("//span[text()='Continue']/.."); //locator for 'Continue' button
