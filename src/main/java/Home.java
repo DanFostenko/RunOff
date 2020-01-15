@@ -115,7 +115,7 @@ public class Home {
         driver.findElement(languageDropdown).click();
         waitObjectLoad(1000);   //forced timeout to render dropdown
         By languageBy = By.xpath("//span[text()=\"" + language + "\"]/../..");
-        driver.findElement(languageBy).click();
+        driver. findElement(languageBy).click();
     }
 
     public void playVideo() {

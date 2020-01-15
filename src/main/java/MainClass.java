@@ -4,7 +4,7 @@ import java.util.concurrent.TimeUnit;
 
 public class MainClass {
     static WebDriver driver;
-    public static String site = "dev.stagerunoff.eu";   //Test https://dev.stagerunoff.eu (3.122.245.190:8081); Stage 54.93.213.241:8081
+    public static String site = "farmer.stagerunoff.eu";   //Test dev.stagerunoff.eu (3.122.245.190:8081); Stage farmer.stagerunoff.eu (54.93.213.241:8081)
 
     public static void main(String[] args) {
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\DanFo\\IdeaProjects\\run-off-test\\chromedriver.exe");
@@ -26,7 +26,8 @@ public class MainClass {
 
         home.clickHome();
         home.signInWithCreds(email,password);
-        //home.signUpWithCreds(name,password);
+        home.clickSignOut();
+        home.signUpWithCreds(name,password);
         home.changeLanguage("English");
         home.playVideo();
         survey.clickSurvey();
