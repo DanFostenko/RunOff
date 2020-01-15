@@ -53,8 +53,12 @@ public class MainClass {
         myDiagnoses.openDiagnose(fieldName);
         myDiagnoses.downloadDiagnose(fieldName);
         myDiagnoses.emailDiagnose(fieldName);
-        //myDiagnoses.editDiagnose(fieldName);
-        //myDiagnoses.deleteDiagnose(fieldName);
+        myDiagnoses.editDiagnose(fieldName);
+        survey.clickContinue();
+        survey.clickContinue();
+        survey.clickFinish();
+        myDiagnoses.clickMyDiagnoses();
+        myDiagnoses.deleteDiagnose(fieldName);
         myDiagnoses.addDiagnose();
         soilTexture.clickSoilTexture();
         soilTexture.validateFooter();

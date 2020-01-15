@@ -112,8 +112,8 @@ public class Home {
     }
 
     public void changeLanguage(String language) {
-        //waitObjectLoad(1000);   //forced timeout to render dropdown
         driver.findElement(languageDropdown).click();
+        waitObjectLoad(1000);   //forced timeout to render dropdown
         By languageBy = By.xpath("//span[text()=\"" + language + "\"]/../..");
         driver.findElement(languageBy).click();
     }

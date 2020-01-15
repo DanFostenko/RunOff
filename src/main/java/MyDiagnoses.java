@@ -32,6 +32,7 @@ public class MyDiagnoses {
     public void downloadDiagnose(String fieldName) {
         By downloadBy = By.xpath("//a[text()=\"" + fieldName + "\"]/../../td[6]");
         driver.findElement(downloadBy).click();
+        switchToActiveTab();
     }
 
     public void emailDiagnose(String fieldName) {
@@ -42,7 +43,7 @@ public class MyDiagnoses {
     public void editDiagnose(String fieldName) {
         By editBy = By.xpath("//a[text()=\"" + fieldName + "\"]/../../td[8]");
         driver.findElement(editBy).click();
-        driver.findElement(myDiagnoses).click();
+        //driver.findElement(myDiagnoses).click();
     }
 
     public void deleteDiagnose(String fieldName) {
@@ -80,6 +81,16 @@ public class MyDiagnoses {
         survey.validateReport();
         survey.clickDiagnoseAnotherField();*/
         driver.findElement(myDiagnoses).click();
+    }
+
+    private void switchToActiveTab() {
+        for (String tab : driver.getWindowHandles()) {  //switch to the active tab
+            driver.switchTo().window(tab);
+        }
+        driver.close();
+        for (String tab : driver.getWindowHandles()) {  //switch to the active tab
+            driver.switchTo().window(tab);
+        }
     }
 
     public static void scrollDown() {

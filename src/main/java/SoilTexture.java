@@ -17,7 +17,7 @@ public class SoilTexture {
     private By footerSurvey = By.xpath("//a[@class='site-map-nav-link'][text()='Survey']");  //Footer -> Site map -> Survey
     private By footerMyDiagnoses = By.xpath("//a[@class='site-map-nav-link'][text()='My Diagnoses']");  //Footer -> Site map -> My Diagnoses
     private By footerSoilTexture = By.xpath("//a[@class='site-map-nav-link active'][text()='Soil Texture']");  //Footer -> Site map -> Soil Texture
-    private By footerTC = By.xpath("//div[@class='site-map-nav-link'][text()='Terms&Conditions']");  //Footer -> Legal -> Terms&Conditions
+    private By footerTC = By.xpath("//div[@class='site-map-nav-link'][text()='Terms & Conditions']");  //Footer -> Legal -> Terms & Conditions
     private By footerPrivacyPolicy = By.xpath("//div[@class='site-map-nav-link'][text()='Privacy policy']");  //Footer -> Site map -> Privacy policy
     private By footerCookiesPolicy = By.xpath("//div[@class='site-map-nav-link'][text()='Cookies policy']");  //Footer -> Site map -> Cookies policy
     private By footerGeneralInquiries = By.xpath("//a[@class='contact-us-a'][text()='info@syngenta.com']");  //Footer -> Contact us -> General inquiries email
