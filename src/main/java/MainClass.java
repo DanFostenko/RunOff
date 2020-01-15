@@ -4,7 +4,7 @@ import java.util.concurrent.TimeUnit;
 
 public class MainClass {
     static WebDriver driver;
-    public static String site = "3.122.245.190:8081";   //Test 3.122.245.190:8081; Stage 54.93.213.241:8081
+    public static String site = "dev.stagerunoff.eu";   //Test https://dev.stagerunoff.eu , 3.122.245.190:8081; Stage 54.93.213.241:8081
 
     public static void main(String[] args) {
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\DanFo\\IdeaProjects\\run-off-test\\chromedriver.exe");
@@ -14,7 +14,7 @@ public class MainClass {
         driver.get("https://"+site);
 
         String name = "UserX";
-        String email = "hridhaan.demarion@owee.org";
+        String email = "dominiq.ziyad@uola.org";
         String password = "Eamw5768*";
         String fieldName = "FieldXYZ";
 
@@ -25,7 +25,6 @@ public class MainClass {
 
         home.clickHome();
         home.signInWithCreds(email,password);
-
         //home.signUpWithCreds(name,password);
         home.changeLanguage("English");
         home.playVideo();
@@ -55,7 +54,7 @@ public class MainClass {
         myDiagnoses.downloadDiagnose(fieldName);
         myDiagnoses.emailDiagnose(fieldName);
         //myDiagnoses.editDiagnose(fieldName);
-        myDiagnoses.deleteDiagnose(fieldName);
+        //myDiagnoses.deleteDiagnose(fieldName);
         myDiagnoses.addDiagnose();
         soilTexture.clickSoilTexture();
         soilTexture.validateFooter();

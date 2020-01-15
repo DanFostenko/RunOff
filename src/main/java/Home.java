@@ -20,18 +20,18 @@ public class Home {
     private By languageDropdown = By.xpath("//div[@class='select-language-div']/*[name()='svg' and @class='MuiSvgIcon-root']");  //locator for language icon
     private By youtubeVideo = By.xpath("//iframe[@class='MuiCardMedia-root video-content MuiCardMedia-media']");  //locator for YouTube video
     //Sign In/Out/Up
-    private By signUpButton = By.xpath("//span[text()='SIGN UP']/..");  //locator for 'SIGN UP' button
-    private By signInTab = By.xpath("//span[@class='MuiTab-wrapper'][text()='Sign In']/..");  //locator for 'SIGN UP' tab
+    private By signInButton = By.xpath("//span[text()='Sign in']/..");  //locator for 'SIGN IN' button
+    private By signInTab = By.xpath("//span[@class='MuiTab-wrapper'][text()='Sign in']/..");  //locator for 'SIGN IN' tab
     private By emailField = By.xpath("//input[@name='email']");  //locator for 'Email Address *' field
     private By passwordField = By.xpath("//input[@name='password']");  //locator for 'Password *' field
-    private By signInSubmitButton = By.xpath("//span[@class='MuiButton-label'][text()='Sign In']/..");  //locator for 'Sign In' button in Sign in menu
+    private By signInSubmitButton = By.xpath("//div/div/button/span[@class='MuiButton-label'][text()='Sign in']/..");  //locator for 'Sign In' button in Sign in menu
     private By signOutSubmitButton = By.xpath("//span[@class='MuiButton-label'][text()='Sign Out']/..");  //locator for 'Sign Out' button in Sign in menu
     private By userButton = By.xpath("//div[@class='auth-profile-name']");  //locator for user name button
     private By signUpTab = By.xpath("//span[text()='Sign Up']/..");  //locator for 'SIGN UP' tab
     private By nameField = By.xpath("//input[@name='name']");  //locator for 'Name *' field
     private By confirmPasswordField = By.xpath("//input[@name='passwordConfirm']");  //locator for 'Confirm password *' field
     private By acceptTCCheckbox = By.xpath("//input[@type='checkbox']");  //locator for 'Accept Terms and Conditions' checkbox
-    private By signUpSubmitButton = By.xpath("//span[@class='MuiButton-label'][text()='Sign up']/..");  //locator for 'Sign up' button in Sign in menu
+    private By signUpSubmitButton = By.xpath("//span[@class='MuiButton-label'][text()='Sign Up']/..");  //locator for 'Sign Up' button in Sign in menu
     private By emailReadField = By.xpath("//span[@id='email']");    //email on temporary email service page
 
     //Methods
@@ -44,7 +44,7 @@ public class Home {
     }
 
     public void clickSignIn() {
-        driver.findElement(signUpButton).click();
+        driver.findElement(signInButton).click();
         driver.findElement(signInTab).click();
     }
 
@@ -68,12 +68,12 @@ public class Home {
         return this;
     }
 
-    public Home signInWithCreds(String email, String password) {
+    public void signInWithCreds(String email, String password) {
         this.clickSignIn();
         this.typeEmail(email);
         this.typePassword(password);
         driver.findElement(signInSubmitButton).click();
-        return new Home(driver);
+        waitObjectLoad(3000);   //forced timeout to process request on Auth0
     }
 
     public void clickSignOut() {
@@ -103,7 +103,7 @@ public class Home {
         this.typeConfirmPassword(password);
         this.clickAcceptTC();
         driver.findElement(signUpSubmitButton).click();
-        waitObjectLoad(2000);   //forced timeout to process request on Auth0
+        waitObjectLoad(3000);   //forced timeout to process request on Auth0
         return email;
     }
 
