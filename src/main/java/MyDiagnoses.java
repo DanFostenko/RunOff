@@ -33,6 +33,8 @@ public class MyDiagnoses {
         By downloadBy = By.xpath("//a[text()=\"" + fieldName + "\"]/../../td[6]");
         driver.findElement(downloadBy).click();
         switchToActiveTab();
+        driver.close();
+        switchToActiveTab();
     }
 
     public void emailDiagnose(String fieldName) {
@@ -84,10 +86,6 @@ public class MyDiagnoses {
     }
 
     private void switchToActiveTab() {
-        for (String tab : driver.getWindowHandles()) {  //switch to the active tab
-            driver.switchTo().window(tab);
-        }
-        driver.close();
         for (String tab : driver.getWindowHandles()) {  //switch to the active tab
             driver.switchTo().window(tab);
         }

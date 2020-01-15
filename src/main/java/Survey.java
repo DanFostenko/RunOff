@@ -28,7 +28,7 @@ public class Survey {
     private By reportScoreLevel = By.xpath("//div[@class='score-level-title']/../*[local-name()='svg']");  //locator for 'Score level' chart
     private By reportSummaryTable = By.xpath("//table[@class='MuiTable-root']");  //locator for 'Summary' table
     private By reportRecommendations = By.xpath("//div[@class='recommendations-warning-caption']");  //locator for 'Recommendations' table
-    private By reportFullReport = By.xpath("//div[@class='pdf-report-title']");  //locator for 'Full Report' table
+    private By reportFullReport = By.xpath("//div[@class='pdf-download-wrapper']");  //locator for 'Full Report' file
     private By diagnoseAnotherFieldButton = By.xpath("//span[text()='Diagnose another field']/..");  //locator for 'Diagnose another field' button
 
     public void clickSurvey() {
@@ -156,7 +156,10 @@ public class Survey {
         elementExists(reportScoreLevel);
         elementExists(reportSummaryTable);
         elementExists(reportRecommendations);
-        elementExists(reportFullReport);
+        driver.findElement(reportFullReport).click();
+        switchToActiveTab();
+        driver.close();
+        switchToActiveTab();
     }
 
     public void clickDiagnoseAnotherField() {
@@ -170,5 +173,11 @@ public class Survey {
             return false;
         }
         return true;
+    }
+
+    private void switchToActiveTab() {
+        for (String tab : driver.getWindowHandles()) {  //switch to the active tab
+            driver.switchTo().window(tab);
+        }
     }
 }

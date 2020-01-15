@@ -4,7 +4,7 @@ import java.util.concurrent.TimeUnit;
 
 public class MainClass {
     static WebDriver driver;
-    public static String site = "dev.stagerunoff.eu";   //Test https://dev.stagerunoff.eu , 3.122.245.190:8081; Stage 54.93.213.241:8081
+    public static String site = "dev.stagerunoff.eu";   //Test https://dev.stagerunoff.eu (3.122.245.190:8081); Stage 54.93.213.241:8081
 
     public static void main(String[] args) {
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\DanFo\\IdeaProjects\\run-off-test\\chromedriver.exe");
@@ -17,6 +17,7 @@ public class MainClass {
         String email = "dominiq.ziyad@uola.org";
         String password = "Eamw5768*";
         String fieldName = "FieldXYZ";
+        String fieldLocation = "CPC4, Capital Park Cambridge (CPC3), Cambridge Rd, Fulbourn, Cambridge CB21 5XE, UK";
 
         Home home = new Home(driver);
         Survey survey = new Survey(driver);
@@ -30,7 +31,7 @@ public class MainClass {
         home.playVideo();
         survey.clickSurvey();
         survey.inputNameOfField(fieldName);
-        survey.inputLocationOfTheField("CPC4, Capital Park Cambridge (CPC3), Cambridge Rd, Fulbourn, Cambridge CB21 5XE, UK");
+        survey.inputLocationOfTheField(fieldLocation);
         survey.uploadImage();
         survey.clickNoPhoto();
         survey.clickNoPhoto();
@@ -62,8 +63,8 @@ public class MainClass {
         myDiagnoses.addDiagnose();
         soilTexture.clickSoilTexture();
         soilTexture.validateFooter();
-
         home.clickSignOut();
+
         driver.quit();  //end work of driver
     }
 }
