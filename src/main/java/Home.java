@@ -30,7 +30,7 @@ public class Home {
     private By signUpTab = By.xpath("//span[text()='Sign Up']/..");  //locator for 'SIGN UP' tab
     private By nameField = By.xpath("//input[@name='name']");  //locator for 'Name *' field
     private By confirmPasswordField = By.xpath("//input[@name='passwordConfirm']");  //locator for 'Confirm password *' field
-    private By acceptTCCheckbox = By.xpath("//input[@type='checkbox']");  //locator for 'Accept Terms and Conditions' checkbox
+    private By acceptTCCheckbox = By.xpath("//input[@type='checkbox']");  //locator for 'Accept Terms and Conditions' checkbox in Sign Up menu
     private By signUpSubmitButton = By.xpath("//span[@class='MuiButton-label'][text()='Sign Up']/..");  //locator for 'Sign Up' button in Sign in menu
     private By emailReadField = By.xpath("//span[@id='email']");    //email on temporary email service page
 

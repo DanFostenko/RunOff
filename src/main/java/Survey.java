@@ -13,6 +13,9 @@ public class Survey {
     }
 
     private By survey = By.xpath("//a[text()='Survey']");  //locator for 'Survey' link
+    private By termsAndConditionsCheckbox = By.xpath("//span[text()='Terms and Conditions']/../span/span/input");  //locator for 'Terms and Conditions' checkbox
+    private By privacyPolicyCheckbox = By.xpath("//span[text()='Privacy Policy']/../span/span/input");  //locator for 'Privacy Policy' checkbox
+    private By privacyAcceptButton = By.xpath("//span[text()='ACCEPT']/..");  //locator for 'Accept' button
     private By nameOfField = By.id("field_name"); //locator for 'Name of field' input field
     private By locationOfTheField = By.id("field_location"); //locator for 'Location of the field' input field
     private By confirmLocationLink = By.xpath("//div/div/div/div/div/p/a[@href='#']"); //locator for GPS link which confirms the location
@@ -35,6 +38,12 @@ public class Survey {
         driver.get("https://"+MainClass.site);
         driver.findElement(survey).click();
         //Home.waitObjectLoad(3000);  //forced timeout to load the survey
+    }
+
+    public void acceptPolicy() {
+        driver.findElement(termsAndConditionsCheckbox).click();
+        driver.findElement(privacyPolicyCheckbox).click();
+        driver.findElement(privacyAcceptButton).click();
     }
 
     //farm_details
